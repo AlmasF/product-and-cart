@@ -1,37 +1,24 @@
 <template>
-  <div class="home">
-    <div class="splash-container">
-      <div class="splash">
-        <h1>Splendid Food</h1>
-      </div>
-    </div>
-
     <main class="wrapper">
+      <h1>Products</h1>
 
-      <h2>Recommended</h2>
-
-      <div class="recommended">
-
+      <div class="card-container">
         <ProductCard
-          v-for="(product, index) in inventory.slice(0, 3)"
+          v-for="(product, index) in inventory"
           :key="product.id"
           class="card"
           :index="index"
           :product="product"
           :addToCart="addToCart"
         />
-
       </div>
-
     </main>
-
-  </div>
 </template>
 
 <script>
-import ProductCard from '../components/ProductCard.vue'
+import ProductCard from '@/components/ProductCard.vue'
+
 export default {
-  name: 'HomeView',
   props: ['inventory', 'addToCart'],
   components: {
     ProductCard
